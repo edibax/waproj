@@ -1,1 +1,1 @@
-"Teste final de sincronização com GitHub".
+Teste final de sincronização com GitHub
