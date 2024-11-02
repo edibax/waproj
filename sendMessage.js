@@ -11,7 +11,7 @@ const client = new Client({
     authStrategy: new LocalAuth({ clientId: 'cliente-whatsapp' }),
     puppeteer: {
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
-        executablePath: '/usr/bin/chromium-browser', // Caminho comum para o Chromium no Render
+        executablePath: '/usr/bin/chromium', // Caminho ajustado para Render
         headless: true // Define para rodar em modo headless
     }
 });
