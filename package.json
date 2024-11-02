@@ -9,8 +9,7 @@
     "whatsapp-web.js": "^1.26.0"
   },
   "scripts": {
-    "start": "node sendMessage.js",
-    "postinstall": "puppeteer install"
+    "start": "node sendMessage.js"
   },
   "keywords": [],
   "author": "",
