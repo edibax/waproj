@@ -8,10 +8,11 @@ const PORT = process.env.PORT || 3000;
 const client = new Client({
   authStrategy: new LocalAuth({ clientId: 'cliente-whatsapp' }),
   puppeteer: {
-    executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', // Substitua pelo caminho correto
-    headless: false
+    args: ['--no-sandbox', '--disable-setuid-sandbox'], // Configurações para ambientes de servidor
+    headless: true // Define como true para rodar em modo headless
   }
 });
+
 
 client.on('qr', (qr) => {
   console.log('QR Code necessário. Escaneie para autenticação.');
