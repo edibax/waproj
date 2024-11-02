@@ -4,14 +4,18 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Configuração do cliente WhatsApp
+const puppeteer = require('puppeteer');
+
+// Configuração do cliente WhatsApp com Puppeteer
 const client = new Client({
-  authStrategy: new LocalAuth({ clientId: 'cliente-whatsapp' }),
-  puppeteer: {
-    args: ['--no-sandbox', '--disable-setuid-sandbox'], // Configurações para ambientes de servidor
-    headless: true // Define como true para rodar em modo headless
-  }
+    authStrategy: new LocalAuth({ clientId: 'cliente-whatsapp' }),
+    puppeteer: {
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        executablePath: '/usr/bin/chromium-browser', // Caminho comum para o Chromium no Render
+        headless: true // Define para rodar em modo headless
+    }
 });
+
 
 
 client.on('qr', (qr) => {
