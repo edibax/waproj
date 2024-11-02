@@ -5,11 +5,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const client = new Client({
-    authStrategy: new LocalAuth({ clientId: 'cliente-whatsapp' }),
-    puppeteer: {
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
-        headless: true // Modo headless para servidores como Render
-    }
+  authStrategy: new LocalAuth({ clientId: 'cliente-whatsapp' }),
+  puppeteer: {
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      executablePath: '/usr/bin/chromium-browser', // Caminho para o Chromium no Render
+      headless: true
+  }
 });
 
 
