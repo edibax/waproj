@@ -12,6 +12,9 @@ const client = new Client({
     }
 });
 
+
+
+
 client.on('qr', (qr) => {
     console.log('QR Code necessário. Escaneie para autenticação.');
     qrcode.generate(qr, { small: true });
