@@ -4,17 +4,14 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Configuração do cliente WhatsApp com Puppeteer
 const client = new Client({
-  authStrategy: new LocalAuth({ clientId: 'cliente-whatsapp' }),
-  puppeteer: {
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      executablePath: '/usr/bin/chromium-browser', // Caminho para o Chromium no Render
-      headless: true
-  }
+    authStrategy: new LocalAuth({ clientId: 'cliente-whatsapp' }),
+    puppeteer: {
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        headless: true // Modo headless para rodar sem interface visual
+    }
 });
-
-
-
 
 client.on('qr', (qr) => {
     console.log('QR Code necessário. Escaneie para autenticação.');
