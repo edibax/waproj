@@ -1,1 +1,1 @@
-Testando o repositório Git.
+"Teste final de sincronização com GitHub".
